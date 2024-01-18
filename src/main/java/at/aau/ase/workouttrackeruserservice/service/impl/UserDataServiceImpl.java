@@ -1,9 +1,13 @@
-package at.aau.ase.workouttrackeruserservice;
+package at.aau.ase.workouttrackeruserservice.service.impl;
 
 import java.util.Optional;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import at.aau.ase.workouttrackeruserservice.model.UserData;
+import at.aau.ase.workouttrackeruserservice.repository.UserDataRepository;
+import at.aau.ase.workouttrackeruserservice.service.UserDataService;
 
 @Service
 public class UserDataServiceImpl implements UserDataService {
@@ -32,8 +36,8 @@ public class UserDataServiceImpl implements UserDataService {
   }
 
   @Override
-  public boolean userExistsByUsername(String username) {
-    return userDataRepository.existsByUsername(username);
+  public boolean userExistsByUsernameOrEmail(String username, String email) {
+    return userDataRepository.existsByUsernameOrEmail(username, email);
   }
 
   @Override

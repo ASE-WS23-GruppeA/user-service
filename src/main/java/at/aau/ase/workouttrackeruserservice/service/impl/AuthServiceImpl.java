@@ -1,4 +1,4 @@
-package at.aau.ase.workouttrackeruserservice;
+package at.aau.ase.workouttrackeruserservice.service.impl;
 
 import java.util.Optional;
 
@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+import at.aau.ase.workouttrackeruserservice.dto.OAuth2TokenResponse;
+import at.aau.ase.workouttrackeruserservice.service.AuthService;
 
 @Service
 public class AuthServiceImpl implements AuthService {

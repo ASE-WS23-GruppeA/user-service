@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-import at.aau.ase.workouttrackeruserservice.UserData;
+import at.aau.ase.workouttrackeruserservice.model.UserData;
 
 /**
  * DTO for {@link UserData}

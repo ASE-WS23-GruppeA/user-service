@@ -1,4 +1,4 @@
-package at.aau.ase.workouttrackeruserservice;
+package at.aau.ase.workouttrackeruserservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

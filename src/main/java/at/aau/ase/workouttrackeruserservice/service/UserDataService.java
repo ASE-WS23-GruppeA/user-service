@@ -1,6 +1,8 @@
-package at.aau.ase.workouttrackeruserservice;
+package at.aau.ase.workouttrackeruserservice.service;
 
 import java.util.Optional;
+
+import at.aau.ase.workouttrackeruserservice.model.UserData;
 
 public interface UserDataService {
 
@@ -8,7 +10,7 @@ public interface UserDataService {
 
   boolean isValidUser(String username, String password);
 
-  boolean userExistsByUsername(String username);
+  boolean userExistsByUsernameOrEmail(String username, String email);
 
   Optional<UserData> findByUsername(String username);
 }
