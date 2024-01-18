@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import at.aau.ase.workouttrackeruserservice.dto.OAuth2TokenResponse;
-import at.aau.ase.workouttrackeruserservice.model.UserData;
-import at.aau.ase.workouttrackeruserservice.service.UserDataService;
 import at.aau.ase.workouttrackeruserservice.dto.UserDataResponse;
 import at.aau.ase.workouttrackeruserservice.dto.UserLoginRequest;
 import at.aau.ase.workouttrackeruserservice.dto.UserLoginResponse;
 import at.aau.ase.workouttrackeruserservice.dto.UserRegistrationRequest;
+import at.aau.ase.workouttrackeruserservice.model.UserData;
 import at.aau.ase.workouttrackeruserservice.service.AuthService;
+import at.aau.ase.workouttrackeruserservice.service.UserDataService;
 
 @RestController
 @RequestMapping("/api/auth")
