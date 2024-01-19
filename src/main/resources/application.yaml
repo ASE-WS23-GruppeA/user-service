@@ -1,8 +1,9 @@
 server:
   port: 8081
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/wt_user_service
+    url: jdbc:postgresql://${api.postgres-db.host}:5432/wt_user_service
     username: wt
     password: wt
   jpa:
@@ -11,3 +12,21 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+
+api:
+  api-gateway:
+    base-url: http://localhost:8443
+  postgres-db:
+    host: localhost
+
+---
+spring.config.activate.on-profile: docker
+
+server:
+  port: 8080
+
+api:
+  api-gateway:
+    base-url: http://api-gateway:8443
+  postgres-db:
+    host: postgres_db

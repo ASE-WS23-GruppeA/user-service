@@ -2,6 +2,7 @@ package at.aau.ase.workouttrackeruserservice.service.impl;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,11 +18,14 @@ import at.aau.ase.workouttrackeruserservice.service.AuthService;
 @Service
 public class AuthServiceImpl implements AuthService {
 
+  @Value("${api.api-gateway.base-url}")
+  private String apiGatewayBaseUrl;
+
   @Override
   public Optional<OAuth2TokenResponse> getTokenFromAuthServer() {
     RestTemplate restTemplate = new RestTemplate();
 
-    String authServerUrl = "http://localhost:8443/oauth2/token";
+    String authServerUrl = apiGatewayBaseUrl + "/oauth2/token";
     String clientId = "wt-client";
     String clientSecret = "secret";
     HttpHeaders headers = new HttpHeaders();
