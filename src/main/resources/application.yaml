@@ -29,4 +29,4 @@ api:
   api-gateway:
     base-url: http://api-gateway:8443
   postgres-db:
-    host: postgres_db
+    host: postgres-user-db
