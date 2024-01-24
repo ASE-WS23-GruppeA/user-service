@@ -11,3 +11,6 @@ ALTER TABLE users
 
 ALTER TABLE users
   ADD CONSTRAINT uc_users_username UNIQUE (username);
+
+INSERT INTO users (id, username, password, email)
+VALUES (100, 'mock', '{bcrypt}$2a$10$GoJ3RFhYbW03u1i3MJHi0uuLY/CNi7LBeru5jMCc7vd6jrpAKf93C', 'mock@mock.com');
