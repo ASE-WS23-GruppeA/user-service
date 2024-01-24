@@ -15,8 +15,6 @@ jobs:
     uses: ASE-WS23-GruppeA/workout-tracker/.github/workflows/docker-build-and-push.yml@main
     with:
       docker_image_tag: 'registry.digitalocean.com/do-ase-registry/user-service'
-      build_artifact_name: 'build_folder'
-      build_artifact_path: 'build'
     secrets:
       DIGITALOCEAN_ACCESS_TOKEN: "${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}"
 
