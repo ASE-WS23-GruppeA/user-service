@@ -93,7 +93,7 @@ public class AuthController {
     }
 
     Long userId = userDataOptional.get().getId();
-    String accessToken = oAuth2TokenResponse.getAccessToken();
+    String accessToken = oAuth2TokenResponse.accessToken();
     var userLoginResponse = new UserLoginResponse(userId, accessToken);
 
     LOGGER.info("Successfully logged in user - [userId={}, userName={}]", userId, username);
