@@ -9,6 +9,7 @@ jobs:
     uses: ASE-WS23-GruppeA/workout-tracker/.github/workflows/gradle-build-and-test.yml@main
 
   test-and-upload-coverage:
+    needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project sources
@@ -43,6 +44,53 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: build/reports/jacoco/test/jacocoTestReport.xml
           fail_ci_if_error: true
+
+  test-performance:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project sources
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: 'build_artifact'
+          path: 'build'
+
+      - name: Setup docker-compose
+        uses: KengoTODA/actions-setup-docker-compose@v1.2.1
+        with:
+          version: '2.14.2'
+
+      - name: Start docker-compose
+        run: docker-compose up -d
+
+      - name: Create reports directory
+        run: mkdir reports
+
+      - name: JMeter Test
+        uses: QAInsights/PerfAction@v5.6.2
+        with:
+          test-plan-path: ./performance_tests/test.jmx
+          args: "-e -o ./reports/html/"
+
+      - name: Upload Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-results
+          path: result.jtl
+          if-no-files-found: error
+
+      - name: Upload HTML Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: jmeter-html-reports
+          path: reports
+          if-no-files-found: error
+
+      - name: Stop docker-compose
+        run: docker-compose down
 
   build-and-push-docker:
     needs: build-and-test
