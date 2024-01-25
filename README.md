@@ -1,0 +1,1 @@
+[![codecov](https://codecov.io/gh/ASE-WS23-GruppeA/user-service/graph/badge.svg?token=FUSHIV0E20)](https://codecov.io/gh/ASE-WS23-GruppeA/user-service)
