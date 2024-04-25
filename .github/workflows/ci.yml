@@ -3,7 +3,8 @@ name: Build and Test Gradle project
 on:
   push:
   pull_request:
-
+  workflow_dispatch:
+    
 jobs:
   build-and-test:
     uses: ASE-WS23-GruppeA/workout-tracker/.github/workflows/gradle-build-and-test.yml@main
